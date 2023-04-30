@@ -30,8 +30,9 @@ export const signup = createAsyncThunk(
 
 export const login = createAsyncThunk(
   'auth/login',
-  async ({ email, password }, { rejectWithValue }) => {
+  async ({ username, password }, { rejectWithValue }) => {
     try {
+      console.log(username);
       // configure header's Content-Type as JSON
       const config = {
         headers: {
@@ -40,7 +41,7 @@ export const login = createAsyncThunk(
       }
       const { data } = await axios.post(
         `${backendURL}/api/user/login`,
-        { email, password },
+        { username, password },
         config
       )
       // store user's token in local storage
