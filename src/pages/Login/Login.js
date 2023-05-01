@@ -9,13 +9,14 @@ function Login() {
     const dispatch = useDispatch();
     const formik = useFormik({
       initialValues: {
-        username: '',
+        phone: '',
         password: '',
       },
       validationSchema: Yup.object({
-        username: Yup.string()
-          .max(15, 'Must be 15 characters or less')
-          .required('Required'),
+        phone: Yup.string()
+        .matches(/^(?:\+20|0)?1[0125]\d{8}$/, 'Please enter a valid Egyptian phone number')
+        .required('Phone number is required'),
+        
         password: Yup.string()
         .required('Required'),
       }),
@@ -26,12 +27,12 @@ function Login() {
    });
     return (
     <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Phone number</label>
         <input
-            id="username"
-            name="username"
-            type="text"
-            {...formik.getFieldProps('username')}
+            id="phone"
+            name="phone"
+            type="tel"
+            {...formik.getFieldProps('phone')}
         />
         {formik.touched.username && formik.errors.username ? (
             <div>{formik.errors.username}</div>
