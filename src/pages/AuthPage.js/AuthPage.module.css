@@ -23,15 +23,45 @@
 
 .left-part {
   flex: 1 1 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8rem;
 }
 
-@media screen and (max-aspect-ratio: 3/4) {
+@media screen and (max-width: 900px) {
+  .right-part {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .right-part {
+    flex-basis: 35%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .right-part {
+    flex-basis: 20%;
+  }
+}
+
+@media screen and (max-width: 500px) {
   .right-part {
     display: none;
   }
 
-  @media screen and (max-width: 1200px) {
-    .right-part {
-    }
+  .left-part {
+    background: linear-gradient(
+      to left,
+      #fc6600 0%,
+      #f36528 32.8%,
+      #eb644a 60.2%,
+      #e7645c 74.9%,
+      #e46469 85.3%,
+      #e26473 90.2%,
+      #e0647b 100%
+    );
   }
 }
