@@ -2,16 +2,20 @@ import { TextField, styled } from '@mui/material';
 import classes from '../../utils/styles/form.module.css';
 import React from 'react';
 
-const StyledInput = styled(TextField)(({ theme }) => ({
-  width: '50%',
-  [theme.breakpoints.down('md')]: {
-    width: '80%'
-  }
-}));
-
-function RoundInput({ id, name, type, variant, label, error, formProps }) {
+function RoundInput({
+  id,
+  name,
+  type,
+  variant,
+  label,
+  error,
+  formProps,
+  width = 50,
+  isFocused = false
+}) {
   return (
     <TextField
+      autoFocus={isFocused}
       id={id}
       name={name}
       type={type}
@@ -19,7 +23,7 @@ function RoundInput({ id, name, type, variant, label, error, formProps }) {
       label={label}
       InputProps={{
         style: {
-          borderRadius: '20px'
+          borderRadius: '10px'
         }
       }}
       InputLabelProps={{
@@ -27,8 +31,7 @@ function RoundInput({ id, name, type, variant, label, error, formProps }) {
       }}
       style={{
         flexShrink: '1',
-        marginBottom: '8px',
-        width: '50%'
+        width: `${width}%`
       }}
       error={error}
       {...formProps}

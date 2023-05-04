@@ -26,11 +26,14 @@ function PasswordStrengthMeter({ password }) {
   const changePasswordColor = () => ({
     width: `${percentage}%`,
     background: funcProgressColor(),
-    height: '7px'
+    height: '3px'
   });
   return (
     <>
-      <div className="progress">
+      <div
+        className="progress"
+        style={{ backgroundColor: 'transparent' }}
+      >
         <div
           className="progress-bar"
           style={changePasswordColor()}
