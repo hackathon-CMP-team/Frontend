@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import RoundButton from '../../utils/components/RoundButton';
 import ErrorMessage from '../../utils/components/ErrorMessage';
-import { useNavigate } from 'react-router-dom';
+import StyledLink from '../../utils/components/StyledLink';
 
 function ForgetPassword() {
   const formik = useFormik({
@@ -24,7 +24,6 @@ function ForgetPassword() {
       alert(values.phone);
     }
   });
-  const navigate = useNavigate();
   return (
     <form onSubmit={formik.submitForm}>
       <Grid
@@ -39,9 +38,9 @@ function ForgetPassword() {
         >
           <Grid
             xs={12}
-            style={{ textAlign: 'center' }}
+            // style={{ textAlign: 'center' }}
           >
-            <h2 style={{ color: '#e26473' }}>Forget Password</h2>
+            <h2 style={{ color: '#e26473' }}>Forget Password ?</h2>
           </Grid>
 
           <Grid xs={12}>
@@ -59,35 +58,21 @@ function ForgetPassword() {
               <ErrorMessage message={formik.errors.phone} />
             ) : null}
           </Grid>
+          <Grid
+            xs={12}
+            style={{ textAlign: 'center' }}
+          >
+            <StyledLink
+              to="/auth/login"
+              text="Back to login"
+            />
+          </Grid>
           <Grid xs={12}>
             <RoundButton
               isContained
-              text="Reset Password"
+              text="Send"
               type="submit"
             />
-          </Grid>
-
-          <Grid
-            container
-            columnGap={2}
-            justifyContent="space-between"
-          >
-            <Grid xs={5}>
-              <RoundButton
-                isContained={false}
-                text="Login"
-                type="button"
-                onClickHandler={() => navigate('/auth/login')}
-              />
-            </Grid>
-            <Grid xs={5}>
-              <RoundButton
-                isContained={false}
-                text="Register"
-                type="button"
-                onClickHandler={() => navigate('/auth/signup')}
-              />
-            </Grid>
           </Grid>
         </Grid>
       </Grid>
