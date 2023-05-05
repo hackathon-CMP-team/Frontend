@@ -2,7 +2,6 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { signup } from '../../store/features/auth/authActions';
 import * as Yup from 'yup';
-import PasswordStrengthMeter from '../../utils/components/PasswordStrengthMeter';
 import ErrorMessage from '../../utils/components/ErrorMessage';
 import { useState } from 'react';
 import RoundInput from '../../utils/components/RoundInput';
@@ -11,8 +10,8 @@ import { Grid } from '@mui/material';
 import childLogo from '../../assets/images/child.png';
 import adultLogo from '../../assets/images/person.png';
 import Avatar from '@mui/material/Avatar';
-import { Link } from 'react-router-dom';
 import PasswordInput from '../../utils/components/PasswordInput';
+import StyledLink from '../../utils/components/StyledLink';
 
 function Signup() {
   const dispatch = useDispatch();
@@ -133,7 +132,6 @@ function Signup() {
           >
             <Grid xs={5.5}>
               <RoundInput
-                isFocused
                 id="firstName"
                 name="firstName"
                 type="text"
@@ -256,17 +254,10 @@ function Signup() {
             xs={12}
             style={{ textAlign: 'center' }}
           >
-            <Link
-              style={{
-                textDecoration: 'none',
-                color: '#413d3d8e',
-                fontSize: '1rem',
-                alignSelf: 'center'
-              }}
+            <StyledLink
+              text="Already have an email ?"
               to="/auth/login"
-            >
-              Already have an email ?
-            </Link>
+            />
           </Grid>
 
           <Grid xs={12}>

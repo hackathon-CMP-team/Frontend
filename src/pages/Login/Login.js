@@ -5,9 +5,10 @@ import { login } from '../../store/features/auth/authActions';
 import RoundButton from '../../utils/components/RoundButton';
 import RoundInput from '../../utils/components/RoundInput';
 import { useNavigate } from 'react-router';
-import { Link } from 'react-router-dom';
 import PasswordInput from '../../utils/components/PasswordInput';
 import { Grid } from '@mui/material';
+import ErrorMessage from '../../utils/components/ErrorMessage';
+import StyledLink from '../../utils/components/StyledLink';
 
 function Login() {
   const dispatch = useDispatch();
@@ -52,7 +53,6 @@ function Login() {
           >
             <Grid xs={12}>
               <RoundInput
-                isFocused
                 id="phone"
                 name="phone"
                 type="tel"
@@ -63,8 +63,8 @@ function Login() {
                 formProps={formik.getFieldProps('phone')}
               />
 
-              {formik.touched.username && formik.errors.username ? (
-                <div>{formik.errors.username}</div>
+              {formik.touched.phone && formik.errors.phone ? (
+                <ErrorMessage message={formik.errors.phone} />
               ) : null}
             </Grid>
             <Grid xs={12}>
@@ -79,24 +79,17 @@ function Login() {
                 formProps={formik.getFieldProps('password')}
               />
               {formik.touched.password && formik.errors.password ? (
-                <div>{formik.errors.password}</div>
+                <ErrorMessage message={formik.errors.password} />
               ) : null}
             </Grid>
             <Grid
               xs={12}
               style={{ textAlign: 'center' }}
             >
-              <Link
-                style={{
-                  textDecoration: 'none',
-                  color: '#413d3d8e',
-                  fontSize: '1rem',
-                  alignSelf: 'center'
-                }}
+              <StyledLink
                 to="/auth/forget-password"
-              >
-                Forget Password ?
-              </Link>
+                text="Forget Password ?"
+              />
             </Grid>
             <Grid xs={12}>
               <RoundButton
