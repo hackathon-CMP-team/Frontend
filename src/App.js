@@ -5,6 +5,7 @@ import Signup from './pages/Signup/Signup';
 import LandingPage from './pages/LandingPage/LandingPage';
 import AuthPage from './pages/AuthPage.js/AuthPage';
 import ForgetPassword from './pages/ForgetPassword/ForgetPassword';
+import ResetPassword from './pages/ResetPassword/ResetPassword';
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
           <Route
             path="forget-password"
             element={<ForgetPassword />}
+          />
+          <Route
+            path="reset-password"
+            element={<ResetPassword />}
           />
         </Route>
       </Routes>
