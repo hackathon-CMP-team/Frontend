@@ -34,13 +34,15 @@ function ForgetPassword() {
           xs={8}
           container
           justifyContent="center"
-          rowGap={3}
+          rowGap={1.5}
         >
           <Grid
             xs={12}
             // style={{ textAlign: 'center' }}
           >
-            <h2 style={{ color: '#e26473' }}>Forget Password ?</h2>
+            <h2 style={{ color: '#e26473', fontSize: '1.3rem' }}>
+              Forget Password ?
+            </h2>
           </Grid>
 
           <Grid xs={12}>
