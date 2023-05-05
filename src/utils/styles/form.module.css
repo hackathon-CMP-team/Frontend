@@ -50,17 +50,8 @@
   align-self: center;
 }
 
-@media screen and (max-width: 500px) {
-  .logo-box h1 {
-    color: var(--light-color);
-  }
-
-  .label {
-    color: var(--light-color);
-    font-size: 1.3rem;
-  }
-
-  .forget-password--link {
-    color: var(--light-color);
+@media screen and (max-width: 390px) {
+  .logo-box {
+    margin-top: 25%;
   }
 }

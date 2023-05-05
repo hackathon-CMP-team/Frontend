@@ -32,7 +32,7 @@ function PasswordStrengthMeter({ password }) {
     <>
       <div
         className="progress"
-        style={{ backgroundColor: 'transparent' }}
+        style={{ backgroundColor: '#fafbfc', height: '3px' }}
       >
         <div
           className="progress-bar"

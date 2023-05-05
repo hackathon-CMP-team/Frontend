@@ -1,5 +1,4 @@
-import { TextField, styled } from '@mui/material';
-import classes from '../../utils/styles/form.module.css';
+import { TextField } from '@mui/material';
 import React from 'react';
 
 function RoundInput({
@@ -10,7 +9,6 @@ function RoundInput({
   label,
   error,
   formProps,
-  width = 50,
   isFocused = false
 }) {
   return (
@@ -26,13 +24,7 @@ function RoundInput({
           borderRadius: '10px'
         }
       }}
-      InputLabelProps={{
-        className: classes.label
-      }}
-      style={{
-        flexShrink: '1',
-        width: `${width}%`
-      }}
+      fullWidth
       error={error}
       {...formProps}
     />

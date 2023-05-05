@@ -1,13 +1,12 @@
 import { Button } from '@mui/material';
 
-function RoundButton({ text, isContained, onClickHandler }) {
+function RoundButton({ text, isContained, onClickHandler, type }) {
   return (
     <Button
       variant={isContained ? 'contained' : 'outlined'}
       disableElevation
       sx={{
         textTransform: 'uppercase',
-        width: '50%',
         borderRadius: '50px',
         backgroundColor: isContained ? '#e26473' : '#fffffff7',
         fontWeight: '400',
@@ -22,7 +21,9 @@ function RoundButton({ text, isContained, onClickHandler }) {
           borderColor: isContained ? '#e26473' : 'transparent'
         }
       }}
-      onClick={onClickHandler}
+      type={type}
+      fullWidth
+      onClick={type === 'button' ? onClickHandler : undefined}
     >
       {text}
     </Button>
