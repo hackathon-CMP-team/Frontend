@@ -29,6 +29,29 @@
   gap: 3rem;
 }
 
+.logo-box {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-box img {
+  display: block;
+  width: 10%;
+}
+
+.logo-box h1 {
+  font-weight: 400;
+  font-size: 3.5rem;
+  color: var(--main-color);
+}
+
+@media screen and (max-width: 390px) {
+  .logo-box {
+    margin-top: 25%;
+  }
+}
 @media screen and (max-width: 900px) {
   .right-part {
     flex-basis: 50%;

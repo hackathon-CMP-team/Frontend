@@ -2,7 +2,6 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/features/auth/authActions';
-import classes from '../../utils/styles/form.module.css';
 import RoundButton from '../../utils/components/RoundButton';
 import RoundInput from '../../utils/components/RoundInput';
 import { useNavigate } from 'react-router';
@@ -40,10 +39,7 @@ function Login() {
   });
   return (
     <>
-      <form
-        className={classes.form}
-        onSubmit={formik.handleSubmit}
-      >
+      <form onSubmit={formik.handleSubmit}>
         <Grid
           container
           justifyContent="center"
@@ -91,7 +87,12 @@ function Login() {
               style={{ textAlign: 'center' }}
             >
               <Link
-                className={classes['forget-password--link']}
+                style={{
+                  textDecoration: 'none',
+                  color: '#413d3d8e',
+                  fontSize: '1rem',
+                  alignSelf: 'center'
+                }}
                 to="/auth/forget-password"
               >
                 Forget Password ?
