@@ -33,9 +33,10 @@ function Login() {
 
       password: Yup.string().required('Required')
     }),
-    onSubmit: (values) => {
-      const res = dispatch(login(values));
+    onSubmit: async (values) => {
+      const res = await dispatch(login(values));
       console.log(res);
+      navigate('/');
     }
   });
   return (

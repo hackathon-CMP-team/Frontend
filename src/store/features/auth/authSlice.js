@@ -4,31 +4,40 @@ import { login, signup } from './authActions';
 const initialState = {
   loading: false,
   userInfo: {}, // for user object
-  userToken: null, // for storing the JWT
+  userToken: null,
   error: null,
-  success: false // for monitoring the registration process.
+  success: false, // for monitoring the registration process.
+  isAuth: false
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      state.userInfo = {};
+      state.userToken = null;
+      state.isAuth = false;
+    }
+  },
   extraReducers: {
     // User login
     [login.pending]: (state) => {
       state.loading = true;
       state.error = null;
+      state.isAuth = false;
     },
     [login.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.userInfo = payload;
       state.userToken = payload.userToken;
-      console.log(payload);
+      state.isAuth = true;
+      console.log(state.isAuth);
     },
     [login.rejected]: (state, { payload }) => {
       state.loading = false;
       state.error = payload;
-      console.log(payload);
+      state.isAuth = false;
     },
 
     // register user reducer
@@ -46,5 +55,7 @@ const authSlice = createSlice({
     }
   }
 });
+
+export const authActions = authSlice.actions;
 
 export default authSlice.reducer;

@@ -44,9 +44,8 @@ export const login = createAsyncThunk(
         { phoneNumber: phone, password },
         config
       );
-      // store user's token in local storage
-      console.log(data);
-      localStorage.setItem('userToken', data.userToken);
+
+      console.log('here');
       return data;
     } catch (error) {
       // return custom error message from API if any
