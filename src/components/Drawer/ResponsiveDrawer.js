@@ -16,7 +16,6 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import WalletOutlinedIcon from '@mui/icons-material/WalletOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
 import SettingsSuggestOutlinedIcon from '@mui/icons-material/SettingsSuggestOutlined';
-import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
 import MiscellaneousServicesOutlinedIcon from '@mui/icons-material/MiscellaneousServicesOutlined';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -24,23 +23,43 @@ import { Avatar, Grid } from '@mui/material';
 import logo from '../../assets/images/logo.png';
 import { HelpCenterOutlined } from '@mui/icons-material';
 import { Badge } from '@mui/base';
+import { useNavigate } from 'react-router';
 
 const drawerWidth = 240;
 
 function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const navigate = useNavigate();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const navigateToPage = (route) => {
+    navigate(route);
+  };
   const options = [
-    { text: 'Home', icon: <HomeOutlinedIcon /> },
-    { text: 'Services', icon: <MiscellaneousServicesOutlinedIcon /> },
-    { text: 'My Wallet', icon: <WalletOutlinedIcon /> },
-    { text: 'Management', icon: <SettingsSuggestOutlinedIcon /> },
-    { text: 'Help Center', icon: <HelpCenterOutlined /> }
+    { text: 'Home', icon: <HomeOutlinedIcon />, route: '/dashboard' },
+    {
+      text: 'Services',
+      icon: <MiscellaneousServicesOutlinedIcon />,
+      route: '/dashboard/services'
+    },
+    {
+      text: 'My Wallet',
+      icon: <WalletOutlinedIcon />,
+      route: '/dashboard/wallet'
+    },
+    {
+      text: 'Management',
+      icon: <SettingsSuggestOutlinedIcon />,
+      route: '/dashboard/management'
+    },
+    {
+      text: 'Help Center',
+      icon: <HelpCenterOutlined />,
+      route: '/dashboard/help'
+    }
   ];
   const drawer = (
     <div>
@@ -52,7 +71,7 @@ function ResponsiveDrawer(props) {
             key={item.text}
             disablePadding
           >
-            <ListItemButton>
+            <ListItemButton onClick={() => navigateToPage(item.route)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -77,15 +96,18 @@ function ResponsiveDrawer(props) {
           <Grid
             container
             flexDirection="row"
-            justifyContent="space-evenly"
+            alignItems="center"
+            sx={{ justifyContent: { xs: 'space-evenly', sm: 'space-between' } }}
           >
-            <Grid>
+            <Grid
+              alignItems="center"
+              sx={{ mr: 2, display: { sm: 'none' } }}
+            >
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: 'none' } }}
               >
                 <MenuIcon />
               </IconButton>
@@ -93,28 +115,53 @@ function ResponsiveDrawer(props) {
 
             <Grid
               container
+              xs={3}
+              sm={4}
               alignItems="center"
               flexDirection="row"
+              columnGap={3}
+              flexGrow={1}
+              sx={{
+                cursor: 'pointer',
+                justifyContent: { xs: 'center', sm: 'flex-start' }
+              }}
             >
-              <Avatar
-                src={logo}
-                variant="square"
-              />
-              <h3 style={{ color: '#e26473' }}>Tap Cash</h3>
+              <Grid onClick={() => navigateToPage('/')}>
+                <Avatar
+                  src={logo}
+                  variant="square"
+                />
+              </Grid>
+              <Grid sx={{ display: { xs: 'none', sm: 'block' } }}>
+                <h3 style={{ color: '#e26473' }}>Tap Cash</h3>
+              </Grid>
             </Grid>
 
             <Grid
+              xs={2}
+              sm={6}
               container
+              columnGap={3}
               alignItems="center"
               flexDirection="row"
+              justifyContent="flex-end"
             >
-              <Badge
-                badgeContent={4}
-                color="primary"
-              >
-                <NotificationsNoneIcon />
-              </Badge>
-              <Avatar />
+              <Grid sx={{ display: { xs: 'none', sm: 'block' } }}>
+                <Badge
+                  badgeContent={4}
+                  color="primary"
+                >
+                  <IconButton>
+                    <NotificationsNoneIcon />
+                  </IconButton>
+                </Badge>
+              </Grid>
+              <Grid>
+                <Avatar>test</Avatar>
+              </Grid>
+              <Grid sx={{ display: { xs: 'none', sm: 'block' } }}>
+                <p style={{ color: '#000' }}>Ahmed Asaad Darwish</p>
+              </Grid>
             </Grid>
           </Grid>
         </Toolbar>

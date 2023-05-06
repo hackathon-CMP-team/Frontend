@@ -13,7 +13,16 @@ function App() {
     <div>
       <Routes>
         <Route
-          path="/"
+          path="/dashboard"
+          element={<Dashboard />}
+        >
+          <Route path="services" />
+          <Route path="management" />
+          <Route path="help" />
+          <Route path="wallet" />
+        </Route>
+        <Route
+          path="/landing"
           element={<LandingPage />}
         />
         <Route
@@ -37,10 +46,6 @@ function App() {
             element={<ResetPassword />}
           />
         </Route>
-        <Route
-          path="/dashboard"
-          element={<Dashboard />}
-        />
       </Routes>
     </div>
   );
