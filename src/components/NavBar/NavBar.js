@@ -22,6 +22,7 @@ function NavBar() {
     <Grid
       container
       justifyContent="space-around"
+      alignItems="center"
       style={{ color: '#e26473' }}
     >
       <Grid xs={4}>

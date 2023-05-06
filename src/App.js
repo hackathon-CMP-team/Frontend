@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import AuthPage from './pages/AuthPage.js/AuthPage';
 import ForgetPassword from './pages/ForgetPassword/ForgetPassword';
 import ResetPassword from './pages/ResetPassword/ResetPassword';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -36,6 +37,10 @@ function App() {
             element={<ResetPassword />}
           />
         </Route>
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
+        />
       </Routes>
     </div>
   );
