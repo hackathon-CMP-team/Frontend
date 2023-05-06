@@ -1,7 +1,8 @@
 import React from 'react';
+import ResponsiveDrawer from '../../components/Drawer/ResponsiveDrawer';
 
 function Dashboard() {
-  return <div>Dashboard</div>;
+  return <ResponsiveDrawer />;
 }
 
 export default Dashboard;
