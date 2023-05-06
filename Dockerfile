@@ -1,17 +1,11 @@
-FROM node:18.12.0
+FROM node:18.12.0-alpine
 
 WORKDIR /app
 
 COPY . .
 
-RUN npm install --force
-
-RUN npm run build
-
-RUN npm install -g serve
-
+RUN npm install
 
 EXPOSE 5000
 
-
-CMD "serve" "-s" "build"
+CMD ["npm", "start"]
