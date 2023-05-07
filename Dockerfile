@@ -13,5 +13,7 @@ RUN npm install
 # Expose the port on which the application listens
 EXPOSE 5000
 
+# This comment just to test Jenkins pipeline. I will delete it again!
+
 # Start the application
 CMD ["npm", "start"]
