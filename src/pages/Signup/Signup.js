@@ -1,21 +1,25 @@
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../../store/features/auth/authActions';
 import * as Yup from 'yup';
 import ErrorMessage from '../../utils/components/ErrorMessage';
 import { useState } from 'react';
 import RoundInput from '../../utils/components/RoundInput';
 import RoundButton from '../../utils/components/RoundButton';
-import { Grid } from '@mui/material';
+import { Alert, Grid, MenuItem, TextField } from '@mui/material';
 import childLogo from '../../assets/images/child.png';
 import adultLogo from '../../assets/images/person.png';
 import Avatar from '@mui/material/Avatar';
 import PasswordInput from '../../utils/components/PasswordInput';
 import StyledLink from '../../utils/components/StyledLink';
+import { useNavigate } from 'react-router';
 
 function Signup() {
   const dispatch = useDispatch();
   const [isAdult, setIsAdult] = useState(true);
+  const [failedRequest, setFailedRequest] = useState(false);
+  const { isAuth, error, loading } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -26,7 +30,8 @@ function Signup() {
       phone: '',
       parentPhone: '',
       birthDate: '',
-      isAdult
+      isAdult,
+      gender: 'male'
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
@@ -60,11 +65,18 @@ function Signup() {
       confPassword: Yup.string().oneOf(
         [Yup.ref('password'), null],
         'Passwords must match'
-      )
+      ),
+      gender: Yup.string()
+        .required('Please choose a gender')
+        .oneOf(['male', 'female'])
     }),
-    onSubmit: (values) => {
-      dispatch(signup(values));
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values) => {
+      await dispatch(signup(values));
+      if (error) {
+        setFailedRequest(error);
+      } else {
+        navigate('/dashboard/home');
+      }
     }
   });
   return (
@@ -161,7 +173,6 @@ function Signup() {
               ) : null}
             </Grid>
           </Grid>
-
           <Grid xs={12}>
             <RoundInput
               id="phone"
@@ -175,7 +186,6 @@ function Signup() {
               <ErrorMessage message={formik.errors.phone} />
             ) : null}
           </Grid>
-
           {isAdult ? null : (
             <Grid xs={12}>
               <RoundInput
@@ -194,7 +204,6 @@ function Signup() {
               ) : null}
             </Grid>
           )}
-
           <Grid xs={12}>
             <RoundInput
               id="email"
@@ -224,10 +233,39 @@ function Signup() {
             ) : null}
           </Grid>
           <Grid xs={12}>
+            <TextField
+              id="gender"
+              name="gender"
+              select
+              label="Select your gender"
+              defaultValue="male"
+              InputProps={{
+                style: {
+                  borderRadius: '10px'
+                }
+              }}
+              fullWidth
+              error={formik.errors.gender}
+              {...formik.getFieldProps('gender')}
+            >
+              {['female', 'male'].map((option) => (
+                <MenuItem
+                  key={option}
+                  value={option}
+                >
+                  {option}
+                </MenuItem>
+              ))}
+            </TextField>
+            {formik.touched.gender && formik.errors.gender ? (
+              <ErrorMessage message={formik.errors.gender} />
+            ) : null}
+          </Grid>
+          <Grid xs={12}>
             <PasswordInput
               id="password"
               name="password"
-              label="Password"
+              label="PIN"
               error={formik.touched.password && Boolean(formik.errors.password)}
               formProps={formik.getFieldProps('password')}
             />
@@ -239,7 +277,7 @@ function Signup() {
             <PasswordInput
               id="confPassword"
               name="confPassword"
-              label="Confirm Password"
+              label="Confirm PIN"
               error={
                 formik.touched.confPassword &&
                 Boolean(formik.errors.confPassword)
@@ -259,7 +297,6 @@ function Signup() {
               to="/auth/login"
             />
           </Grid>
-
           <Grid xs={12}>
             <RoundButton
               isContained
@@ -267,6 +304,20 @@ function Signup() {
               text="Register"
             />
           </Grid>
+          {failedRequest ? (
+            <Grid xs={12}>
+              <Alert
+                sx={{
+                  fontSize: '1.3rem',
+                  alignItems: 'center',
+                  borderRadius: '20px'
+                }}
+                severity="error"
+              >
+                Invalid phone or password — check them out!
+              </Alert>
+            </Grid>
+          ) : null}
         </Grid>
       </Grid>
     </form>

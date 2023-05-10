@@ -17,7 +17,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SettingsSuggestOutlinedIcon from '@mui/icons-material/SettingsSuggestOutlined';
 import MiscellaneousServicesOutlinedIcon from '@mui/icons-material/MiscellaneousServicesOutlined';
 import Toolbar from '@mui/material/Toolbar';
-import { Avatar, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import logo from '../../assets/images/logo.png';
 import { HelpCenterOutlined } from '@mui/icons-material';
 import { Badge } from '@mui/base';

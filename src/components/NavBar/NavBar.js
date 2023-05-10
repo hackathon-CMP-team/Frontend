@@ -104,7 +104,7 @@ function NavBar(props) {
             src={logo}
           />
           <Typography
-            variant="h6"
+            variant="h4"
             component="div"
             sx={{
               marginLeft: '0.5rem',
