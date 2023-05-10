@@ -48,6 +48,7 @@ const authSlice = createSlice({
     [signup.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.success = true; // registration successful
+      state.userInfo = payload;
     },
     [signup.rejected]: (state, { payload }) => {
       state.loading = false;

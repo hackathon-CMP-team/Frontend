@@ -4,7 +4,18 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 export const signup = createAsyncThunk(
   'auth/register',
   async (
-    { firstName, lastName, email, password, phone },
+    {
+      firstName,
+      lastName,
+      email,
+      password,
+      phone,
+      isAdult,
+      gender,
+      confPassword,
+      parentPhone,
+      birthDate
+    },
     { rejectWithValue }
   ) => {
     try {
@@ -13,16 +24,40 @@ export const signup = createAsyncThunk(
           'Content-Type': 'application/json'
         }
       };
-      await api.post(
+
+      console.log({
+        name: [firstName, lastName].join(' '),
+        email,
+        password,
+        phoneNumber: phone,
+        dateOfBirth: birthDate,
+        role: isAdult ? 'parent' : 'child',
+        gender,
+        parentPhoneNumber: isAdult ? null : parentPhone
+      });
+      const response = await api.post(
         '/auth/signup',
-        { firstName, email, password, lastName, phoneNumber: phone },
+        {
+          name: [firstName, lastName].join(' '),
+          email,
+          password,
+          phoneNumber: phone,
+          dateOfBirth: birthDate,
+          role: isAdult ? 'parent' : 'child',
+          gender,
+          parentPhoneNumber: isAdult ? null : parentPhone
+        },
         config
       );
+      console.log(response.headers);
+      return response.data;
     } catch (error) {
       // return custom error message from backend if present
       if (error.response && error.response.data.message) {
+        console.log(error);
         return rejectWithValue(error.response.data.message);
       } else {
+        console.log(error);
         return rejectWithValue(error.message);
       }
     }
@@ -30,7 +65,7 @@ export const signup = createAsyncThunk(
 );
 
 export const login = createAsyncThunk(
-  '/auth/signup',
+  '/auth/login',
   async ({ phone, password }, { rejectWithValue }) => {
     try {
       // configure header's Content-Type as JSON
@@ -45,7 +80,7 @@ export const login = createAsyncThunk(
         config
       );
 
-      console.log('here');
+      console.log(data);
       return data;
     } catch (error) {
       // return custom error message from API if any

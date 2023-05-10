@@ -36,11 +36,6 @@
   justify-content: center;
 }
 
-.logo-box img {
-  display: block;
-  width: 10%;
-}
-
 .logo-box h1 {
   font-weight: 400;
   font-size: 3.5rem;
@@ -49,12 +44,15 @@
 
 @media screen and (max-width: 390px) {
   .logo-box {
-    margin-top: 25%;
+    margin-top: 2rem;
   }
 }
 @media screen and (max-width: 900px) {
   .right-part {
     flex-basis: 50%;
+  }
+  .logo-box {
+    margin-top: 5rem;
   }
 }
 
@@ -62,21 +60,27 @@
   .right-part {
     flex-basis: 35%;
   }
+  .logo-box {
+    margin-top: 5rem;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .right-part {
     flex-basis: 20%;
   }
+
+  .logo-box {
+    margin-top: 5rem;
+  }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-aspect-ratio: 3/4) {
   .right-part {
     display: none;
   }
 
   .left-part {
-    background-image: url('../../assets/images/wave.svg');
-    background-repeat: no-repeat;
+    height: fit-content;
   }
 }

@@ -7,24 +7,46 @@ import AuthPage from './pages/AuthPage.js/AuthPage';
 import ForgetPassword from './pages/ForgetPassword/ForgetPassword';
 import ResetPassword from './pages/ResetPassword/ResetPassword';
 import Dashboard from './pages/Dashboard/Dashboard';
+import Services from './pages/Dashboard/Services';
+import Management from './pages/Dashboard/Management';
+import Help from './pages/Dashboard/Help';
+import MyWallet from './pages/Dashboard/MyWallet';
+import Home from './pages/Dashboard/Home';
 
 function App() {
   return (
     <div>
       <Routes>
         <Route
+          path="/"
+          element={<LandingPage />}
+        />
+        <Route
           path="/dashboard"
           element={<Dashboard />}
         >
-          <Route path="services" />
-          <Route path="management" />
-          <Route path="help" />
-          <Route path="wallet" />
+          <Route
+            path="home"
+            element={<Home />}
+          />
+          <Route
+            path="services"
+            element={<Services />}
+          />
+          <Route
+            path="management"
+            element={<Management />}
+          />
+          <Route
+            path="help"
+            element={<Help />}
+          />
+          <Route
+            path="wallet"
+            element={<MyWallet />}
+          />
         </Route>
-        <Route
-          path="/landing"
-          element={<LandingPage />}
-        />
+
         <Route
           path="/auth"
           element={<AuthPage />}
