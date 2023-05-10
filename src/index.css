@@ -1,5 +1,7 @@
 :root {
   --main-color: #e26473;
+  --secondary-color: #e2acb4;
+  --tertiary-color: #ffeff4;
   --light-color: #fffffff7;
 }
 
@@ -29,4 +31,8 @@ body {
   html {
     font-size: 62.5%;
   }
+}
+
+.css-19kzrtu {
+  display: none;
 }

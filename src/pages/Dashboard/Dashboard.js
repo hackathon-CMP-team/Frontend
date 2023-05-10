@@ -125,9 +125,11 @@ function Dashboard(props) {
               }}
             >
               <Grid onClick={() => navigateToPage('/landing')}>
-                <Avatar
+                <Box
+                  component="img"
+                  sx={{ height: 64 }}
+                  alt="tap cash logo"
                   src={logo}
-                  variant="square"
                 />
               </Grid>
               <Grid sx={{ display: { xs: 'none', sm: 'block' } }}>
@@ -145,12 +147,14 @@ function Dashboard(props) {
               justifyContent="flex-end"
             >
               <Grid sx={{ display: { xs: 'none', sm: 'block' } }}>
-                <IconButton size="small">
+                <IconButton
+                  size="small"
+                  aria-label="notifications"
+                >
                   <Badge
-                    badgeContent={100}
+                    badgeContent={4}
                     max={99}
-                    color="primary"
-                    overlap="circular"
+                    color="error"
                   >
                     <NotificationsNoneIcon />
                   </Badge>

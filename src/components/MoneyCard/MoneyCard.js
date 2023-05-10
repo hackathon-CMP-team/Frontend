@@ -1,18 +1,18 @@
 import { Typography } from '@mui/material';
-import classe from './MoneyCard.module.css';
+import classes from './MoneyCard.module.css';
 
-function MoneyCard({ title, content }) {
+function MoneyCard(props) {
   return (
-    <div className={classe['money-card']}>
+    <div className={classes['money-card']}>
       <div>
         <Typography
           sx={{ color: '#7E84A3', fontSize: '1rem' }}
           variant="h6"
         >
-          {title}
+          {props.title}
         </Typography>
       </div>
-      <div>{content}</div>
+      <div>{props.children}</div>
     </div>
   );
 }

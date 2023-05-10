@@ -18,6 +18,10 @@ function App() {
     <div>
       <Routes>
         <Route
+          path="/"
+          element={<LandingPage />}
+        />
+        <Route
           path="/dashboard"
           element={<Dashboard />}
         >
@@ -42,10 +46,7 @@ function App() {
             element={<MyWallet />}
           />
         </Route>
-        <Route
-          path="/landing"
-          element={<LandingPage />}
-        />
+
         <Route
           path="/auth"
           element={<AuthPage />}
