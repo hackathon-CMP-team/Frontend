@@ -78,19 +78,18 @@ $ npm start
 
 <ul>
 <li>
-    <img scr="" alt="screen1"/>
+    <iframe scr="./screenshots/landing.gif" title="landing page" height="200" width="300"> </iframe>
 </li>
 
 <li>
-    <img scr="" alt="screen1"/>
+    <iframe scr="./screenshots/signup.gif" title="Sign up" height="200" width="300"> </iframe>
+
 </li>
 
 <li>
-    <img scr="" alt="screen1"/>
+    <img scr="./screenshots/dashboard.png" alt="dashboard" height="200" width="300"/>
 </li>
-<li>
-    <img scr="" alt="screen1"/>
-</li>
+
 </ul>
 ## ✍️ Contributors
 
@@ -109,5 +108,5 @@ $ npm start
 
 ## Credits
 
-This project was developed by
-
+This project was developed by <a href="https://github.com/ahmedasad236" target="_black">
+Ahmed Asaad</a> during The Eid-Hackathon in Orange digital Center
