@@ -1,6 +1,5 @@
-﻿<div align="center">
+<div align="center">
 <img height="200" src="./src/assets/images/logo.png">
-<h1/>
 </div>
 
 <div align="center">
@@ -111,3 +110,4 @@ $ npm start
 ## Credits
 
 This project was developed by
+
