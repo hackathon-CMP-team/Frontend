@@ -78,11 +78,11 @@ $ npm start
 
 <ul>
 <li>
-    <iframe scr="./screenshots/landing.gif" title="landing page" height="200" width="300"> </iframe>
+    <img scr="./screenshots/landing.gif" alt="landing page" height="200" width="300" />
 </li>
 
 <li>
-    <iframe scr="./screenshots/signup.gif" title="Sign up" height="200" width="300"> </iframe>
+    <img scr="./screenshots/signup.gif" alt="Sign up" height="200" width="300" />
 
 </li>
 
