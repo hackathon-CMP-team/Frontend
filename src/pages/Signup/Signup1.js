@@ -14,7 +14,7 @@ import PasswordInput from '../../utils/components/PasswordInput';
 import StyledLink from '../../utils/components/StyledLink';
 import { useNavigate } from 'react-router';
 
-function Signup() {
+function Signup1() {
   const dispatch = useDispatch();
   const [isAdult, setIsAdult] = useState(true);
   const [failedRequest, setFailedRequest] = useState(false);
@@ -324,4 +324,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Signup1;

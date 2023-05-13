@@ -29,9 +29,14 @@
   gap: 3rem;
 }
 
+/* Hide SVG containers by default */
+.top-svg-container,
+.bottom-svg-container {
+  display: none;
+}
+
 .logo-box {
   display: flex;
-  gap: 2rem;
   align-items: center;
   justify-content: center;
 }
@@ -40,6 +45,13 @@
   font-weight: 400;
   font-size: 3.5rem;
   color: var(--main-color);
+  margin: 0;
+}
+
+.logo-box img {
+  max-width: 30%;
+  height: auto;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 390px) {
@@ -82,5 +94,27 @@
 
   .left-part {
     height: fit-content;
+  }
+
+  .auth-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .top-svg-container,
+  .bottom-svg-container {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  .top-svg-container {
+    top: 0;
+  }
+
+  .bottom-svg-container {
+    bottom: 0;
   }
 }
