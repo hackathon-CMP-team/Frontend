@@ -12,6 +12,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.section-hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.section {
+  flex-basis: 100%;
+  transition: all 0.3s;
+}
+
 .vector-animation {
   animation: top-down 1.5s linear infinite;
   -webkit-animation: top-down 1.5s linear infinite;

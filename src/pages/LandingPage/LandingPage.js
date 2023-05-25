@@ -15,6 +15,8 @@ import PaymentsIcon from '@mui/icons-material/Payments';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import CallReceivedIcon from '@mui/icons-material/CallReceived';
+import ObservedSection from '../../utils/components/ObservedSection';
+
 function LandingPage() {
   const services = [
     { text: 'Transfer', icon: <ReplyAllIcon color="action" />, route: '' },
@@ -43,7 +45,14 @@ function LandingPage() {
       <NavBar />
 
       {/*Home Section*/}
-      <Box sx={{ height: '100vh', maxWidth: '100%', marginTop: '1.5rem' }}>
+      <Box
+        sx={{
+          height: '100vh',
+          maxWidth: '100%',
+          marginTop: '1.5rem',
+          bgcolor: 'secondary.light'
+        }}
+      >
         <Container
           maxWidth="lg"
           sx={{
@@ -149,7 +158,7 @@ function LandingPage() {
               >
                 <Box
                   sx={{
-                    bgcolor: '#e26473',
+                    bgcolor: 'secondary.light',
                     height: '100%',
                     width: '100%',
                     display: 'flex',
@@ -184,93 +193,101 @@ function LandingPage() {
         </Container>
 
         {/*Manage Your Finance Section*/}
-        <Grid
-          item
-          container
-          xs={12}
-          sx={{ bgcolor: '#e26473', marginTop: '10rem', height: '20rem' }}
-          alignItems="center"
-        >
-          <Grid
-            item
-            xs={3}
-          >
-            <img />
-          </Grid>
-
+        <ObservedSection sectionId="manage-your-finance">
           <Grid
             item
             container
-            direction="column"
-            rowGap={5}
-            xs={6}
+            xs={12}
+            sx={{
+              bgcolor: 'primary.main',
+              marginTop: '10rem',
+              height: '20rem'
+            }}
+            alignItems="center"
           >
-            <Typography
-              variant="h2"
-              sx={{ color: '#302E2E', fontSize: '3.2rem', fontWeight: '500' }}
+            <Grid
+              item
+              xs={3}
             >
-              <span style={{ color: '#fff' }}>Manage</span> Your Finance
-            </Typography>
+              <img />
+            </Grid>
 
-            <Typography
-              sx={{ color: '#302E2E', fontSize: '2rem', fontWeight: '400' }}
+            <Grid
+              item
+              container
+              direction="column"
+              rowGap={5}
+              xs={6}
             >
-              Finances at your fingerprint
-            </Typography>
-            <ul>
-              <li style={{ fontSize: '1.3rem', fontWeight: '400' }}>
-                Quick & Fast Regestration
-              </li>
-              <li style={{ fontSize: '1.3rem', fontWeight: '400' }}>
-                Ease to Transfer & Request Money
-              </li>
-              <li style={{ fontSize: '1.3rem', fontWeight: '400' }}>
-                Finances at your fingerprints!
-              </li>
-            </ul>
+              <Typography
+                variant="h2"
+                sx={{ color: '#302E2E', fontSize: '3.2rem', fontWeight: '500' }}
+              >
+                <span style={{ color: '#fff' }}>Manage</span> Your Finance
+              </Typography>
+
+              <Typography
+                sx={{ color: '#302E2E', fontSize: '2rem', fontWeight: '400' }}
+              >
+                Finances at your fingerprint
+              </Typography>
+              <ul>
+                <li style={{ fontSize: '1.3rem', fontWeight: '400' }}>
+                  Quick & Fast Regestration
+                </li>
+                <li style={{ fontSize: '1.3rem', fontWeight: '400' }}>
+                  Ease to Transfer & Request Money
+                </li>
+                <li style={{ fontSize: '1.3rem', fontWeight: '400' }}>
+                  Finances at your fingerprints!
+                </li>
+              </ul>
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid
-          item
-          container
-          justifyContent="center"
-          alignItems="center"
-          xs={12}
-          sx={{
-            backgroundColor: '#ffeff4',
-            paddingTop: '10rem'
-          }}
-        >
-          <Grid
-            item
-            direction="column"
-          >
-            <Typography
-              variant="h1"
-              style={{
-                color: '#302E2E',
-                fontSize: '2.8rem',
-                fontWeight: '600'
-              }}
-            >
-              What <span style={{ color: '#e26473' }}>Tap Cash</span> Can Offer
-              ?
-            </Typography>
-          </Grid>
+        </ObservedSection>
+        <ObservedSection sectionId="what-tap-cash">
           <Grid
             item
             container
-            spacing={4}
+            justifyContent="center"
+            alignItems="center"
+            xs={12}
+            sx={{
+              bgcolor: 'secondary.light',
+              paddingTop: '10rem'
+            }}
           >
-            {services.map((service) => (
-              <LandingPageCard
-                key={service.text}
-                icon={service.icon}
-                text={service.text}
-              />
-            ))}
+            <Grid
+              item
+              direction="column"
+            >
+              <Typography
+                variant="h1"
+                style={{
+                  color: '#302E2E',
+                  fontSize: '2.8rem',
+                  fontWeight: '600'
+                }}
+              >
+                What <span style={{ color: '#e26473' }}>Tap Cash</span> Can
+                Offer ?
+              </Typography>
+            </Grid>
+            <Grid
+              item
+              container
+              spacing={4}
+            >
+              {services.map((service) => (
+                <LandingPageCard
+                  key={service.text}
+                  icon={service.icon}
+                  text={service.text}
+                />
+              ))}
+            </Grid>
           </Grid>
-        </Grid>
+        </ObservedSection>
       </Box>
     </Grid>
   );
