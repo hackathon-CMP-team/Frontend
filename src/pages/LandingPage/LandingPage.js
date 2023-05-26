@@ -16,8 +16,10 @@ import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import CallReceivedIcon from '@mui/icons-material/CallReceived';
 import ObservedSection from '../../utils/components/ObservedSection';
+import { useTheme } from '@mui/material/styles';
 
 function LandingPage() {
+  const theme = useTheme();
   const services = [
     { text: 'Transfer', icon: <ReplyAllIcon color="action" />, route: '' },
     { text: 'Withdraw', icon: <PointOfSaleIcon color="action" />, route: '' },
@@ -49,8 +51,7 @@ function LandingPage() {
         sx={{
           height: '100vh',
           maxWidth: '100%',
-          marginTop: '1.5rem',
-          bgcolor: 'secondary.light'
+          marginTop: '1.5rem'
         }}
       >
         <Container
@@ -158,7 +159,6 @@ function LandingPage() {
               >
                 <Box
                   sx={{
-                    bgcolor: 'secondary.light',
                     height: '100%',
                     width: '100%',
                     display: 'flex',
@@ -199,11 +199,11 @@ function LandingPage() {
             container
             xs={12}
             sx={{
-              bgcolor: 'primary.main',
-              marginTop: '10rem',
-              height: '20rem'
+              bgcolor: 'primary.main'
             }}
             alignItems="center"
+            paddingTop="10rem"
+            paddingBottom="10rem"
           >
             <Grid
               item
@@ -252,15 +252,11 @@ function LandingPage() {
             justifyContent="center"
             alignItems="center"
             xs={12}
-            sx={{
-              bgcolor: 'secondary.light',
-              paddingTop: '10rem'
-            }}
+            rowGap={8}
+            paddingTop="10rem"
+            paddingBottom="10rem"
           >
-            <Grid
-              item
-              direction="column"
-            >
+            <Grid item>
               <Typography
                 variant="h1"
                 style={{
@@ -269,14 +265,19 @@ function LandingPage() {
                   fontWeight: '600'
                 }}
               >
-                What <span style={{ color: '#e26473' }}>Tap Cash</span> Can
-                Offer ?
+                What{' '}
+                <span style={{ color: `${theme.palette.primary.main}` }}>
+                  Tap Cash
+                </span>{' '}
+                Can Offer ?
               </Typography>
             </Grid>
             <Grid
               item
               container
-              spacing={4}
+              columnGap={3}
+              rowGap={3}
+              justifyContent="center"
             >
               {services.map((service) => (
                 <LandingPageCard

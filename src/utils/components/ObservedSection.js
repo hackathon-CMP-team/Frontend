@@ -18,7 +18,7 @@ const ObservedSection = ({ sectionId, children }) => {
 
     const options = {
       root: null, // Use the viewport as the root element
-      threshold: 0.5 // Trigger callback when at least 50% of the element is visible
+      threshold: 0.1 // Trigger callback when at least 50% of the element is visible
     };
 
     const observer = new IntersectionObserver(observerCallback, options);

@@ -3,7 +3,7 @@
   background-color: white;
   flex-direction: column;
   border-radius: 10px;
-  border: 1px solid #e26473;
+  border: 1px solid var(--main-color);
   transition: all 0.2s;
   justify-content: center;
   align-items: center;
@@ -13,5 +13,5 @@
 }
 
 .landing-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
