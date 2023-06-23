@@ -15,7 +15,7 @@ function Login() {
   const navigate = useNavigate();
 
   const registerHandler = () => {
-    navigate('/auth/signup');
+    navigate('/auth/signup1');
   };
 
   const formik = useFormik({

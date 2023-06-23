@@ -36,7 +36,7 @@ function LandingPage() {
   ];
   const navigate = useNavigate();
   const signupHandler = () => {
-    navigate('/auth/signup');
+    navigate('/auth/signup1');
   };
   return (
     <Grid sx={{ marginTop: '1rem' }}>

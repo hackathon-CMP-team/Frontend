@@ -76,21 +76,12 @@ $ npm start
 
 ## Screenshots
 
-<ul>
-<li>
-    <img scr="./screenshots/landing.gif" alt="landing page" height="200" width="300" />
-</li>
+- ![landing](./screenshots/landing.gif)
 
-<li>
-    <img scr="./screenshots/signup.gif" alt="Sign up" height="200" width="300" />
+- ![signup](./screenshots/signup.gif)
 
-</li>
+- ![dashboard](./screenshots/dashboard.png)
 
-<li>
-    <img scr="./screenshots/dashboard.png" alt="dashboard" height="200" width="300"/>
-</li>
-
-</ul>
 ## ✍️ Contributors
 
 <table>
